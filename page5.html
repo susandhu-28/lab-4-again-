@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interactive Chai Activity</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <main>
+    <header>
+      <h1>How to Make the Perfect Cup of Chai</h1>
+      <h2>Interactive Chai Activity</h2>
+      <p>Explore the tools and ingredients needed to make chai.</p>
+    </header>
+
+    <nav aria-label="Main navigation">
+      <a href="index.html">Main Page</a>
+      <a href="page1.html">How to Make Chai Video Tutorial</a>
+      <a href="page2.html">Map of India</a>
+      <a href="page3.html">Chai Interest Form</a>
+      <a href="page4.html">Learn Hindi on Quizlet!</a>
+      <a href="page5.html">Interactive Chai Activity</a>
+    </nav>
+
+    <section class="interactive-section" aria-labelledby="tools-title">
+      <h2 id="tools-title">Which of these images shows the correct tools and ingredients to make chai?</h2>
+
+      <div class="chai-choices">
+        <div class="chai-choice">
+          <div class="chai-image-swap" id="correct-choice">
+            <img class="chai-image chai-image-default" src="img/chai-correct.png" alt="Chai ingredients and tools including tea, milk, cardamom, ginger, jaggery, and a strainer">
+            <img class="chai-image chai-image-hover" src="img/chai-correct-hover.png" alt="Chai being poured through a strainer into a cup">
+          </div>
+          <div class="choice-feedback correct-feedback" aria-live="polite" hidden></div>
+        </div>
+
+        <div class="chai-choice">
+          <div class="chai-image-swap" id="incorrect-choice">
+            <img class="chai-image chai-image-default" src="img/chai-incorrect.png" alt="Chai ingredients with star anise and without cardamom">
+            <img class="chai-image chai-image-hover" src="img/chai-incorrect-hover.png" alt="Grayscale chai ingredients image with a large red X indicating an incorrect choice">
+          </div>
+          <div class="choice-feedback incorrect-feedback" aria-live="polite" hidden></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="interactive-section" aria-labelledby="checklist-title">
+      <h2 id="checklist-title">Chai Ingredient Checklist</h2>
+      <p>Check each ingredient as you gather it.</p>
+
+      <div class="checklist" id="ingredient-checklist">
+        <label class="ingredient-item"><input type="checkbox"> Loose black tea</label>
+        <label class="ingredient-item"><input type="checkbox"> Cardamom pods</label>
+        <label class="ingredient-item"><input type="checkbox"> Water</label>
+        <label class="ingredient-item"><input type="checkbox"> Milk</label>
+        <label class="ingredient-item"><input type="checkbox"> Sweetener</label>
+        <label class="ingredient-item"><input type="checkbox"> Fresh ginger <em>(optional)</em></label>
+      </div>
+
+      <p class="completion-message" id="completion-message" hidden>Great job! You have gathered everything needed for chai.</p>
+      <button class="action-button" id="reset-checklist" type="button">Reset Checklist</button>
+    </section>
+
+    <section class="interactive-section" aria-labelledby="tips-title">
+      <h2 id="tips-title">Chai-Making Tips</h2>
+      <button class="action-button" id="tips-button" type="button" aria-expanded="false" aria-controls="tips-box">Show Chai Tips</button>
+
+      <div class="tips-box" id="tips-box" hidden>
+        <h3>Tips for flavorful chai</h3>
+        <ul>
+          <li>Crush the cardamom pods gently before simmering them.</li>
+          <li>Let the tea and spices simmer before adding the milk.</li>
+          <li>Watch the pot carefully so the chai does not boil over.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(function () {
+      $('#correct-choice').on('mouseenter', function () {
+        $(this).find('.chai-image-default').hide();
+        $(this).find('.chai-image-hover').show();
+        $(this).next('.choice-feedback').prop('hidden', false).html('<strong>Correct!</strong> Ingredients and tools required include milk, black tea, cardamom, a strainer, and more!');
+      }).on('mouseleave', function () {
+        $(this).find('.chai-image-hover').hide();
+        $(this).find('.chai-image-default').show();
+        $(this).next('.choice-feedback').prop('hidden', true).html('');
+      });
+
+      $('#incorrect-choice').on('mouseenter', function () {
+        $(this).find('.chai-image-default').hide();
+        $(this).find('.chai-image-hover').show();
+        $(this).next('.choice-feedback').prop('hidden', false).html('<strong>Incorrect.</strong> This image is missing cardamom and includes star anise, which is not part of this chai ingredient list.');
+      }).on('mouseleave', function () {
+        $(this).find('.chai-image-hover').hide();
+        $(this).find('.chai-image-default').show();
+        $(this).next('.choice-feedback').prop('hidden', true).html('');
+      });
+
+      $('#ingredient-checklist input').on('change', function () {
+        $(this).closest('.ingredient-item').toggleClass('checked', this.checked);
+        const total = $('#ingredient-checklist input').length;
+        const selected = $('#ingredient-checklist input:checked').length;
+        $('#completion-message').prop('hidden', selected !== total);
+      });
+
+      $('#reset-checklist').on('click', function () {
+        $('#ingredient-checklist input').prop('checked', false);
+        $('.ingredient-item').removeClass('checked');
+        $('#completion-message').prop('hidden', true);
+      });
+
+      $('#tips-button').on('click', function () {
+        const tips = $('#tips-box');
+        if (tips.prop('hidden')) {
+          tips.prop('hidden', false).hide().slideDown(300);
+          $('#tips-button').text('Hide Chai Tips').attr('aria-expanded', 'true');
+        } else {
+          tips.slideUp(300, function () {
+            tips.prop('hidden', true);
+          });
+          $('#tips-button').text('Show Chai Tips').attr('aria-expanded', 'false');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

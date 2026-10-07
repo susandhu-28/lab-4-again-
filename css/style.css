@@ -1,0 +1,416 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #eef2e8;
+  color: #243126;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  text-align: center;
+}
+
+main {
+  width: 85%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  margin-bottom: 20px;
+  padding: 30px;
+  background-color: #2f4f38;
+  color: white;
+  border-radius: 14px;
+}
+
+header h1 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 2.2rem;
+}
+
+header h2 {
+  margin-top: 0;
+  margin-bottom: 4px;
+  font-size: 1.4rem;
+}
+
+header h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  font-weight: normal;
+}
+
+header p {
+  margin-bottom: 0;
+}
+
+/* Navigation menu */
+
+nav {
+  margin-bottom: 20px;
+}
+
+nav a {
+  display: inline-block;
+  margin: 3px;
+  padding: 12px 15px;
+  background-color: #2f4f38;
+  color: white;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+nav a:hover,
+nav a:focus {
+  background-color: #f7b857;
+  color: #243126;
+}
+
+/* Chai recipe section */
+
+.chai-guide {
+  margin-top: 20px;
+}
+
+.chai-guide > h2 {
+  color: #294532;
+}
+
+.step {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 24px;
+  background-color: #fffdf6;
+  border: 1px solid #cbd6c6;
+  border-radius: 14px;
+  box-shadow: 0 3px 8px rgba(47, 79, 56, 0.08);
+}
+
+summary {
+  padding: 12px;
+  background-color: #f7b857;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-align: left;
+}
+
+.step-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.step-text {
+  width: 60%;
+  flex: 1 1 350px;
+  text-align: left;
+}
+
+.step-image {
+  width: 40%;
+  margin: 0;
+  text-align: center;
+}
+
+.step img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(47, 79, 56, 0.16);
+}
+
+figcaption {
+  margin-top: 8px;
+  color: #657064;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.step li {
+  margin-bottom: 6px;
+}
+
+.step strong {
+  color: #2f4f38;
+}
+
+/* Warning message */
+
+.warning {
+  padding: 16px;
+  background-color: #fce1e6;
+  border-left: 8px solid #c92a3a;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+.warning-icon {
+  margin-right: 8px;
+  color: #c92a3a;
+  font-size: 2rem;
+}
+
+/* Resources section */
+
+.resources {
+  margin-top: 20px;
+  padding: 24px;
+  background-color: #f8f0dd;
+  border: 1px solid #d8c8a8;
+  border-radius: 14px;
+  box-shadow: 0 3px 8px rgba(47, 79, 56, 0.08);
+  text-align: left;
+}
+
+.resources h2 {
+  margin-top: 0;
+  color: #294532;
+}
+
+.resources a {
+  color: #2f4f38;
+  font-weight: bold;
+}
+
+.resources a:hover,
+.resources a:focus {
+  color: #9a5d1e;
+}
+
+.resources p:last-child {
+  margin-bottom: 0;
+}
+
+/* Interactive Lab 4 page */
+
+.interactive-section {
+  margin-top: 20px;
+  padding: 24px;
+  background-color: #fffdf6;
+  border: 1px solid #cbd6c6;
+  border-radius: 14px;
+  box-shadow: 0 3px 8px rgba(47, 79, 56, 0.08);
+}
+
+.interactive-section h2 {
+  margin-top: 0;
+  color: #294532;
+}
+
+.instruction {
+  margin-bottom: 20px;
+}
+
+.chai-choices {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.chai-choice {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.chai-image-swap {
+  position: relative;
+  overflow: hidden;
+  border: 4px solid #2f4f38;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.chai-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.chai-image-hover {
+  display: none;
+}
+
+.choice-feedback {
+  min-height: 86px;
+  margin-top: 12px;
+  padding: 12px;
+  background-color: #eef2e8;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.choice-feedback strong {
+  color: #2f4f38;
+}
+
+.incorrect-feedback strong {
+  color: #c92a3a;
+}
+
+.tool-image-button {
+  display: block;
+  width: min(100%, 560px);
+  margin: 0 auto;
+  padding: 0;
+  background: transparent;
+  border: 4px solid transparent;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tool-image-button:hover,
+.tool-image-button:focus-visible {
+  transform: scale(1.03);
+  border-color: #f7b857;
+  box-shadow: 0 5px 14px rgba(47, 79, 56, 0.22);
+}
+
+.tool-image-button img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.answer-box,
+.tips-box,
+.completion-message {
+  margin-top: 20px;
+  padding: 16px;
+  background-color: #f8f0dd;
+  border-left: 8px solid #f7b857;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.answer-box h3,
+.tips-box h3 {
+  margin-top: 0;
+  color: #294532;
+}
+
+.checklist {
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.ingredient-item {
+  display: block;
+  margin: 10px 0;
+  padding: 10px 12px;
+  background-color: #eef2e8;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.ingredient-item:hover {
+  background-color: #f7b857;
+}
+
+.ingredient-item.checked {
+  background-color: #d5e5d1;
+  color: #2f4f38;
+  text-decoration: line-through;
+}
+
+.ingredient-item input {
+  margin-right: 10px;
+  accent-color: #2f4f38;
+}
+
+.action-button {
+  margin-top: 16px;
+  padding: 12px 18px;
+  background-color: #2f4f38;
+  color: white;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: bold;
+}
+
+.action-button:hover,
+.action-button:focus-visible {
+  background-color: #f7b857;
+  color: #243126;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.embedded-content {
+  margin-top: 20px;
+  padding: 24px;
+  background-color: #fffdf6;
+  border: 1px solid #cbd6c6;
+  border-radius: 14px;
+  box-shadow: 0 3px 8px rgba(47, 79, 56, 0.08);
+}
+
+.embedded-content h2 {
+  color: #294532;
+}
+
+.embedded-content iframe {
+  max-width: 100%;
+}
+
+/* Mobile layout */
+
+@media (max-width: 700px) {
+  main {
+    width: 90%;
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  .step {
+    padding: 18px;
+  }
+
+  .step-text,
+  .step-image {
+    width: 100%;
+  }
+
+  nav a {
+    display: block;
+    margin: 8px 0;
+  }
+
+  .chai-choices {
+    display: block;
+  }
+
+  .chai-choice + .chai-choice {
+    margin-top: 24px;
+  }
+}
